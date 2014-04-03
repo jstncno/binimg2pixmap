@@ -7,44 +7,16 @@ CXX = g++
 CXX_FLAGS = -c 
 
 
-all: testLinkedString handle_signals my_shell binimage2pixmap
+all: binimg2pixmap
 
-binimage2pixmap:
-
-testLinkedString: testLinkedString.o String.o
+binimg2pixmap: binimg2pixmap.o
 	@echo making $@
 	$(LINK) -ggdb -o $@ $^
 
-testLinkString.o: testLinkedString.cpp String.h 
+binimg2pixmap.o: main.cpp
 	@echo making $@
-	$(CXX) $(CXX_FLAGS) -o $@ -ggdb testString.cpp
-
-String.o: String.cpp String.h
-	@echo making $@
-	$(CXX) $(CXX_FLAGS) -o $@ -ggdb String.cpp
-
-handle_signals: handle_signals.o
-	@echo making $@
-	$(LINK) -ggdb -o $@ $^
-
-handle_signals.o: handle_signals.cpp
-	@echo making $@
-	$(CXX) $(CXX_FLAGS) -o $@ -ggdb handle_signals.cpp
-
-my_shell: my_shell.o
-	@echo making $@
-	$(LINK) -ggdb -o $@ $^
-
-my_shell.o: my_shell.cpp
-	@echo making $@
-	$(CXX) $(CXX_FLAGS) -o $@ -ggdb my_shell.cpp
-
+	$(CXX) $(CXX_FLAGS) -o $@ -ggdb main.cpp
 
 clean:
-	$(RM) *.o testLinkedString handle_signals my_shell
+	$(RM) *.o binimg2pixmap
 
-strip: 
-	strip --strip-debug testLinkedString handle_signals my_shell
-
-print:
-	cat String.cpp
