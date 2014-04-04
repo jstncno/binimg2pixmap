@@ -1,5 +1,4 @@
 #include "TLV.h"
-#include <vector>
 
 #ifndef ImageFileTLV_H
 #define ImageFileTLV_H

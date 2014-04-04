@@ -3,6 +3,7 @@
 #include <sstream>
 #include <fstream>
 #include <assert.h>
+#include <queue>
 #include "TLV.h"
 #include "ImageFileTLV.h"
 
@@ -12,11 +13,13 @@ int main( int argc, char* argv[] )
 {
 	assert(argc>1);
 
+	queue<char> byteStream;
+
 	ifstream inputFile;
 	inputFile.open(argv[1],ios::binary | ios::in);
 
 	char byte;
-	inputFile.read(&byte,sizeof(char));
+	/*inputFile.read(&byte,sizeof(char));
 	if( byte == 0x01 )
 	{
 		char buf[2];
@@ -26,26 +29,25 @@ int main( int argc, char* argv[] )
 		length = buf[0];
 		length = (length << 8) | buf[1];
 		cout << int(buf[0]) << " " << int(buf[1]) << ": " << length << endl;
-	}
-/*	while( inputFile.good() )
+	}*/
+	while( inputFile.good() )
 	{
 		inputFile.read(&byte,sizeof(char));
 
-		switch( byte )
-		{
-			case 0x01:
-				cout << "0x01\n";
-				break;
-			case 0x02:
-				cout << "0x02\n";
-				break;
-			case 0x03:
-				cout << "0x03\n";
-				break;
-			default:
-				break;
-		}
+		byteStream.push(byte);
 	}
-*/
+
+	char type, llength, rlength;
+	type = byteStream.front();
+	byteStream.pop();
+	llength = byteStream.front();
+	byteStream.pop();
+	rlength = byteStream.front();
+	byteStream.pop();
+
+	ImageFileTLV img(byte,llength,rlength);
+
+	cout << img.getLength() << endl;
+
 	return 0;
 }
