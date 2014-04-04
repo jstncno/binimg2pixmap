@@ -1,6 +1,7 @@
 #include "TLV.h"
 #include "ImageFileTLV.h"
 #include "FilenameTLV.h"
+#include "ColorTableTLV.h"
 
 ImageFileTLV::ImageFileTLV()
 {
@@ -13,13 +14,18 @@ ImageFileTLV::ImageFileTLV( char type, char llength, char rlength, std::queue<ch
 	type = type;
 	length = TLV::bytes2int(llength,rlength);
 	char t, lhs, rhs;
+
+
 	t = byteStream.front();
 	byteStream.pop();
 	lhs = byteStream.front();
 	byteStream.pop();
 	rhs = byteStream.front();
 	byteStream.pop();
-	filename = new FilenameTLV(t,lhs,rhs,byteStream);
+	if( t == 0x02 )
+		filename = new FilenameTLV(t,lhs,rhs,byteStream);
+	else if( t == 0x03 )
+		colorTable = new ColorTableTLV(t,lhs,rhs,byteStream);
 }
 
 ImageFileTLV::~ImageFileTLV()

@@ -29,9 +29,13 @@ FilenameTLV.o: FilenameTLV.cpp FilenameTLV.h TLV.h
 	@echo making $@
 	$(CXX) $(CXX_FLAGS) -o $@ -ggdb FilenameTLV.cpp
 
-ColorTableTLV.o: ColorTableTLV.cpp ColorTableTLV.h TLV.h
+ColorTableTLV.o: ColorTableTLV.cpp ColorTableTLV.h ColorMappingTLV.h TLV.h
 	@echo making $@
 	$(CXX) $(CXX_FLAGS) -o $@ -ggdb ColorTableTLV.cpp
+
+ColorMappingTLV.o: ColorMappingTLV.cpp ColorMappingTLV.h TLV.h
+	@echo making $@
+	$(CXX) $(CXX_FLAGS) -o $@ -ggdb ColorMapping.cpp
 
 clean:
 	$(RM) *.o binimg2pixmap
