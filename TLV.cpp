@@ -10,6 +10,11 @@ int TLV::bytes2int( char lhs, char rhs )
 TLV::~TLV()
 {}
 
+int TLV::getLength()
+{
+	return length;
+}
+
 void TLV::setLength( char lhs, char rhs )
 {
 	length = bytes2int(lhs,rhs);

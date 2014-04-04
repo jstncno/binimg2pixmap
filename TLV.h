@@ -5,6 +5,7 @@ class TLV
 {
 	public:
 		virtual ~TLV();
+		int getLength();
 		void setLength( char lhs, char rhs );
 	protected:
 		char type;

@@ -1,5 +1,5 @@
 #include "TLV.h"
-
+#include <string>
 #ifndef FilenameTLV_H
 #define FilenameTLV_H
 
@@ -10,7 +10,7 @@ class FilenameTLV : public TLV
 		FilenameTLV( char type, char llength, char rlength ); // Take in 3 bytes as parameters
 
 	private:
-		char* filename;
+		std::string filename;
 };
 
 #endif
