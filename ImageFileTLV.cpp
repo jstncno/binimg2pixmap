@@ -32,6 +32,7 @@ ImageFileTLV::~ImageFileTLV()
 {
 	delete filename;
 	delete colorTable;
+	delete pixelData;
 }
 
 std::string ImageFileTLV::getFilename()

@@ -11,7 +11,7 @@ class SinglePixelTLV : public TLV
 		~SinglePixelTLV();
 
 	private:
-
+		char key;
 };
 
 #endif

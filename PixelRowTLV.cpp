@@ -14,4 +14,8 @@ PixelRowTLV::PixelRowTLV( char type, char llength, char rlength, std::queue<char
 }
 
 PixelRowTLV::~PixelRowTLV()
-{}
+{
+	for( int i = 0; i < singlePixels.size(); i++ )
+		delete singlePixels[i];
+	delete pixelGroup;
+}

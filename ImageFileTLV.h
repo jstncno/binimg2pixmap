@@ -1,6 +1,7 @@
 #include "TLV.h"
 #include "FilenameTLV.h"
 #include "ColorTableTLV.h"
+#include "PixelDataTLV.h"
 
 #ifndef ImageFileTLV_H
 #define ImageFileTLV_H
@@ -16,6 +17,7 @@ class ImageFileTLV : public TLV
 	private:
 		FilenameTLV* filename;
 		ColorTableTLV* colorTable;
+		PixelDataTLV* pixelData;
 };
 
 #endif

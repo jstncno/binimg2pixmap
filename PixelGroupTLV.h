@@ -11,7 +11,7 @@ class PixelGroupTLV : public TLV
 		~PixelGroupTLV();
 
 	private:
-
+		char num, key;
 };
 
 #endif
