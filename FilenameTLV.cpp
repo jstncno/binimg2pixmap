@@ -3,7 +3,7 @@
 
 FilenameTLV::FilenameTLV()
 {
-	type = 0x00;
+	type = 0x02;
 	length = 0;
 	filename = "";
 }
@@ -11,9 +11,9 @@ FilenameTLV::FilenameTLV()
 FilenameTLV::FilenameTLV( char type, char llength, char rlength, std::queue<char> &byteStream )
 {
 	type = type;
-	length = TLV::bytes2int(llength,rlength);
+	length = bytes2int(llength,rlength);
 	filename = "";
-	// TODO: read <length> bytes from byteStream into filename
+	// read <length> bytes from byteStream into filename
 	for( int i = 0; i < length; i++ )
 	{
 		filename += byteStream.front();

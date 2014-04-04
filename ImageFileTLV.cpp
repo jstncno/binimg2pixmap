@@ -3,7 +3,10 @@
 #include "FilenameTLV.h"
 
 ImageFileTLV::ImageFileTLV()
-{}
+{
+	type = 0x01;
+	length = 0;
+}
 
 ImageFileTLV::ImageFileTLV( char type, char llength, char rlength, std::queue<char> &byteStream )
 {
@@ -22,6 +25,7 @@ ImageFileTLV::ImageFileTLV( char type, char llength, char rlength, std::queue<ch
 ImageFileTLV::~ImageFileTLV()
 {
 	delete filename;
+	delete colorTable;
 }
 
 std::string ImageFileTLV::getFilename()
