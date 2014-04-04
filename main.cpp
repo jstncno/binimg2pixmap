@@ -8,12 +8,11 @@ int main( int argc, char* argv[] )
 {
 	assert(argc>1);
 
-	ifstream inputFile(argv[1]);
+	ifstream inputFile;
+	inputFile.open(argv[1],ios::binary | ios::in);
 
-	cout << "Save as: ";
-	string outputName;
-	cin >> outputName;
-	outputName += ".pixmap";
-	//ofstream outputFile(outputName.c_str());
+	char byte;
+	inputFile.read(&byte,sizeof(char));
+
 	return 0;
 }
