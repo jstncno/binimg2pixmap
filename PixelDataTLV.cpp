@@ -3,7 +3,7 @@
 
 PixelDataTLV::PixelDataTLV()
 {
-	type = 0x03;
+	type = 0x05;
 	length = 0;
 }
 
@@ -14,4 +14,9 @@ PixelDataTLV::PixelDataTLV( char type, char llength, char rlength, std::queue<ch
 }
 
 PixelDataTLV::~PixelDataTLV()
-{}
+{
+	for( int i = 0; i < values.size(); i++ )
+	{
+		delete values[i];
+	}
+}

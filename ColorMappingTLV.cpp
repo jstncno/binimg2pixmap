@@ -3,7 +3,7 @@
 
 ColorMappingTLV::ColorMappingTLV()
 {
-	type = 0x03;
+	type = 0x04;
 	length = 0;
 }
 

@@ -12,7 +12,7 @@ class PixelDataTLV : public TLV
 		~PixelDataTLV();
 
 	private:
-		//std::vector<PixelRow*> values;
+		std::vector<PixelRowTLV*> values;
 };
 
 #endif

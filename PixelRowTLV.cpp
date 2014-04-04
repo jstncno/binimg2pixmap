@@ -3,7 +3,7 @@
 
 PixelRowTLV::PixelRowTLV()
 {
-	type = 0x03;
+	type = 0x06;
 	length = 0;
 }
 
