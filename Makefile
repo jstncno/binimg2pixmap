@@ -9,7 +9,7 @@ CXX_FLAGS = -c
 
 all: binimg2pixmap
 
-binimg2pixmap: binimg2pixmap.o TLV.o ImageFileTLV.o
+binimg2pixmap: binimg2pixmap.o TLV.o ImageFileTLV.o FilenameTLV.o
 	@echo making $@
 	$(LINK) -ggdb -o $@ $^
 
@@ -24,6 +24,10 @@ TLV.o: TLV.cpp TLV.h
 ImageFileTLV.o: ImageFileTLV.cpp ImageFileTLV.h TLV.h
 	@echo making $@
 	$(CXX) $(CXX_FLAGS) -o $@ -ggdb ImageFileTLV.cpp
+
+FilenameTLV.o: FilenameTLV.cpp FilenameTLV.h TLV.h
+	@echo making $@
+	$(CXX) $(CXX_FLAGS) -o $@ -ggdb FilenameTLV.cpp
 
 clean:
 	$(RM) *.o binimg2pixmap
