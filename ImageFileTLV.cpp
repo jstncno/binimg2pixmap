@@ -16,7 +16,7 @@ ImageFileTLV::ImageFileTLV( char type, char llength, char rlength, std::queue<ch
 	byteStream.pop();
 	rhs = byteStream.front();
 	byteStream.pop();
-	values.push_back(new FilenameTLV(t,lhs,rhs));
+	values.push_back(new FilenameTLV(t,lhs,rhs,byteStream));
 }
 
 ImageFileTLV::~ImageFileTLV()

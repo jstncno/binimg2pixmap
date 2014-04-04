@@ -13,6 +13,7 @@ FilenameTLV::FilenameTLV( char type, char llength, char rlength, std::queue<char
 	type = type;
 	length = TLV::bytes2int(llength,rlength);
 	filename = "";
+	// TODO: read <length> bytes from byteStream into filename
 }
 
 void FilenameTLV::setFilename( std::queue<char> &byteStream )
