@@ -1,4 +1,5 @@
 #include "TLV.h"
+#include "ColorMappingTLV.h"
 
 #ifndef ColorTableTLV_H
 #define ColorTableTLV_H
@@ -11,7 +12,8 @@ class ColorTableTLV : public TLV
 		~ColorTableTLV();
 
 	private:
-		//std::vector<ColorMappingTLV*> values;
+		std::map<char,ColorMappingTLV*> values;
+		int numColorMaps;
 };
 
 #endif
