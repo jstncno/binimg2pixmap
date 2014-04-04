@@ -7,7 +7,7 @@ class ImageFileTLV : public TLV
 {
 	public:
 		ImageFileTLV();
-		ImageFileTLV( char type, char llength, char rlength ); // Take in 3 bytes as parameters
+		ImageFileTLV( char type, char llength, char rlength, std::queue<char> &byteStream ); // Take in 3 bytes as parameters
 		~ImageFileTLV();
 	private:
 		std::vector<TLV*> values;

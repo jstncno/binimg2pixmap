@@ -45,7 +45,7 @@ int main( int argc, char* argv[] )
 	rlength = byteStream.front();
 	byteStream.pop();
 
-	ImageFileTLV img(byte,llength,rlength);
+	ImageFileTLV img(byte,llength,rlength,byteStream);
 
 	cout << img.getLength() << endl;
 

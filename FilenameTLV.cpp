@@ -8,7 +8,7 @@ FilenameTLV::FilenameTLV()
 	filename = "";
 }
 
-FilenameTLV::FilenameTLV( char type, char llength, char rlength )
+FilenameTLV::FilenameTLV( char type, char llength, char rlength, std::queue<char> &byteStream )
 {
 	type = type;
 	length = TLV::bytes2int(llength,rlength);
@@ -17,7 +17,7 @@ FilenameTLV::FilenameTLV( char type, char llength, char rlength )
 
 void FilenameTLV::setFilename( std::queue<char> &byteStream )
 {
-	
+
 }
 
 
