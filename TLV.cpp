@@ -1,9 +1,9 @@
 #include "TLV.h"
 
-int TLV::bytes2int( char lhs, char rhs )
+int TLV::bytes2int( char high, char low )
 {
-	int len = lhs;
-	len = (len << 8) | rhs;
+	int len = high;
+	len = (len << 8) | low;
 	return len;
 }
 
@@ -15,7 +15,7 @@ int TLV::getLength()
 	return length;
 }
 
-void TLV::setLength( char lhs, char rhs )
+void TLV::setLength( char high, char low )
 {
-	length = bytes2int(lhs,rhs);
+	length = bytes2int(high,low);
 }

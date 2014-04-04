@@ -16,13 +16,15 @@ ImageFileTLV::ImageFileTLV( char type, char llength, char rlength, std::queue<ch
 	byteStream.pop();
 	rhs = byteStream.front();
 	byteStream.pop();
-	values.push_back(new FilenameTLV(t,lhs,rhs,byteStream));
+	filename = new FilenameTLV(t,lhs,rhs,byteStream);
 }
 
 ImageFileTLV::~ImageFileTLV()
 {
-	for( int i = 0; i < values.size(); i++ )
-	{
-		delete values[i];
-	}
+	delete filename;
+}
+
+std::string ImageFileTLV::getFilename()
+{
+	return filename->getFilename();
 }

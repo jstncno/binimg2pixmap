@@ -14,7 +14,7 @@ class TLV
 	protected:
 		char type;
 		int length;
-		int bytes2int( char lhs, char rhs );
+		int bytes2int( char high, char low ); // concatenates two bytes
 };
 
 #endif

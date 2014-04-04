@@ -47,7 +47,7 @@ int main( int argc, char* argv[] )
 
 	ImageFileTLV img(byte,llength,rlength,byteStream);
 
-	cout << img.getLength() << endl;
+	cout << img.getLength() << endl << img.getFilename() << endl;
 
 	return 0;
 }
