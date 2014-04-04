@@ -1,4 +1,6 @@
 #include "TLV.h"
+#include "PixelGroupTLV.h"
+#include "SinglePixelTLV.h"
 
 #ifndef PixelRowTLV_H
 #define PixelRowTLV_H
