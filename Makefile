@@ -9,7 +9,7 @@ CXX_FLAGS = -c
 
 all: binimg2pixmap
 
-binimg2pixmap: binimg2pixmap.o TLV.o ImageFileTLV.o FilenameTLV.o ColorTableTLV.o ColorMappingTLV.o PixelDataTLV.o
+binimg2pixmap: binimg2pixmap.o TLV.o ImageFileTLV.o FilenameTLV.o ColorTableTLV.o ColorMappingTLV.o PixelDataTLV.o PixelRowTLV.o
 	@echo making $@
 	$(LINK) -ggdb -o $@ $^
 
@@ -37,9 +37,13 @@ ColorMappingTLV.o: ColorMappingTLV.cpp ColorMappingTLV.h TLV.h
 	@echo making $@
 	$(CXX) $(CXX_FLAGS) -o $@ -ggdb ColorMappingTLV.cpp
 
-PixelDataTLV.o: PixelDataTLV.cpp PixelDataTLV.h TLV.h
+PixelDataTLV.o: PixelDataTLV.cpp PixelDataTLV.h PixelRowTLV.h TLV.h
 	@echo making $@
 	$(CXX) $(CXX_FLAGS) -o $@ -ggdb PixelDataTLV.cpp
+
+PixelRowTLV.o: PixelRowTLV.cpp PixelRowTLV.h TLV.h
+	@echo making $@
+	$(CXX) $(CXX_FLAGS) -o $@ -ggdb PixelRowTLV.cpp
 
 clean:
 	$(RM) *.o binimg2pixmap
