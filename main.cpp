@@ -24,10 +24,7 @@ int main( int argc, char* argv[] )
 	{
 		inputFile.read(&byte,sizeof(char));
 		if( !inputFile.eof() )
-		{
-			//if( byte != '\n' && byte != ' ' )
-				byteStream.push(byte);
-		}
+			byteStream.push(byte);
 	}
 
 	char type, llength, rlength;
@@ -37,8 +34,6 @@ int main( int argc, char* argv[] )
 	byteStream.pop();
 	rlength = byteStream.front();
 	byteStream.pop();
-
-	cout << endl << byteStream.size() << endl;
 
 	ImageFileTLV* img = new ImageFileTLV(type,llength,rlength,byteStream);
 
