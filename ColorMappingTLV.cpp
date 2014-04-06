@@ -11,12 +11,21 @@ ColorMappingTLV::ColorMappingTLV( char type, char llength, char rlength, std::qu
 {
 	type = type;
 	length = bytes2int(llength,rlength);
-	key = byteStream.front();
-	byteStream.pop();
-	G = byteStream.front();
-	byteStream.pop();
-	B = byteStream.front();
-	byteStream.pop();
+
+	for( int i = 0; i < length; i++ )
+	{
+		values.push(byteStream.front());
+		byteStream.pop();
+	}
+	while( !values.empty() )
+	{
+		key = values.front();
+		values.pop();
+		G = values.front();
+		values.pop();
+		B = values.front();
+		values.pop();
+	}
 }
 
 ColorMappingTLV::~ColorMappingTLV()

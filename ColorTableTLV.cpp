@@ -12,24 +12,30 @@ ColorTableTLV::ColorTableTLV( char type, char llength, char rlength, std::queue<
 {
 	type = type;
 	length = bytes2int(llength,rlength);
-	numColorMaps = length/7; //7 is the number of bytes a ColorMappingTLV has
+
+	for( int i = 0; i < length; i++ )
+	{
+		values.push(byteStream.front());
+		byteStream.pop();
+	}
+
 	char t, lhs, rhs, key;
 
-	for( int i = 0; i < numColorMaps; i++ )
+	while( !values.empty() )
 	{
-		t = byteStream.front();
-		byteStream.pop();
-		lhs = byteStream.front();
-		byteStream.pop();
-		rhs = byteStream.front();
-		byteStream.pop();
-		key = byteStream.front();
-		values[key] = new ColorMappingTLV(t,lhs,rhs,byteStream);
+		t = values.front();
+		values.pop();
+		lhs = values.front();
+		values.pop();
+		rhs = values.front();
+		values.pop();
+		key = values.front();
+		colorMappings[key] = new ColorMappingTLV(t,lhs,rhs,values);
 	}
 }
 
 ColorTableTLV::~ColorTableTLV()
 {
-	for (std::map<char,ColorMappingTLV*>::iterator it=values.begin(); it!=values.end(); ++it)
-		delete values[it->first];
+	for (std::map<char,ColorMappingTLV*>::iterator it=colorMappings.begin(); it!=colorMappings.end(); ++it)
+		delete colorMappings[it->first];
 }
