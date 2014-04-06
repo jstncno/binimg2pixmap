@@ -11,6 +11,20 @@ PixelGroupTLV::PixelGroupTLV( char type, char llength, char rlength, std::queue<
 {
 	type = type;
 	length = bytes2int(llength,rlength);
+
+	for( int i = 0; i < length; i++ )
+	{
+		values.push(byteStream.front());
+		byteStream.pop();
+	}
+
+	while( !values.empty() )
+	{
+		num = values.front();
+		values.pop();
+		key = values.front();
+		values.pop();
+	}
 }
 
 PixelGroupTLV::~PixelGroupTLV()

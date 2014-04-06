@@ -12,7 +12,8 @@ class PixelDataTLV : public TLV
 		~PixelDataTLV();
 
 	private:
-		std::vector<PixelRowTLV*> values;
+		std::queue<char> values;
+		std::vector<PixelRowTLV*> pixelRows;
 };
 
 #endif

@@ -13,6 +13,7 @@ class PixelRowTLV : public TLV
 		~PixelRowTLV();
 
 	private:
+		std::queue<char> values;
 		std::vector<SinglePixelTLV*> singlePixels;
 		PixelGroupTLV* pixelGroup;
 };

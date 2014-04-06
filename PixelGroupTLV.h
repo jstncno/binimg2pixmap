@@ -11,6 +11,7 @@ class PixelGroupTLV : public TLV
 		~PixelGroupTLV();
 
 	private:
+		std::queue<char> values;
 		char num, key;
 };
 

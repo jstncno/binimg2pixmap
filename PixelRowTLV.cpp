@@ -11,6 +11,37 @@ PixelRowTLV::PixelRowTLV( char type, char llength, char rlength, std::queue<char
 {
 	type = type;
 	length = bytes2int(llength,rlength);
+
+	for( int i = 0; i < length; i++ )
+	{
+		values.push(byteStream.front());
+		byteStream.pop();
+	}
+
+	char t, lhs, rhs, key;
+
+	while( !values.empty() )
+	{
+		t = values.front();
+		values.pop();
+		lhs = values.front();
+		values.pop();
+		rhs = values.front();
+		values.pop();
+
+		switch( t )
+		{
+			case 0x07: // if pixel-group
+				pixelGroup = new PixelGroupTLV(t,lhs,rhs,values);
+				break;
+			case 0x08: // if single-pixel
+				singlePixels.push_back(new SinglePixelTLV(t,lhs,rhs,values));
+				pixelGroup = NULL;
+				break;
+			default:
+				break;
+		}
+	}
 }
 
 PixelRowTLV::~PixelRowTLV()
