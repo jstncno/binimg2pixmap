@@ -15,17 +15,29 @@ ImageFileTLV::ImageFileTLV( char type, char llength, char rlength, std::queue<ch
 	length = TLV::bytes2int(llength,rlength);
 	char t, lhs, rhs;
 
-
-	t = byteStream.front();
-	byteStream.pop();
-	lhs = byteStream.front();
-	byteStream.pop();
-	rhs = byteStream.front();
-	byteStream.pop();
-	if( t == 0x02 )
-		filename = new FilenameTLV(t,lhs,rhs,byteStream);
-	else if( t == 0x03 )
-		colorTable = new ColorTableTLV(t,lhs,rhs,byteStream);
+	for( int i = 0; i < 3; i++ )
+	{
+		t = byteStream.front();
+		byteStream.pop();
+		lhs = byteStream.front();
+		byteStream.pop();
+		rhs = byteStream.front();
+		byteStream.pop();
+		switch( t )
+		{
+			case 0x02:
+				filename = new FilenameTLV(t,lhs,rhs,byteStream);
+				break;
+			case 0x03:
+				colorTable = new ColorTableTLV(t,lhs,rhs,byteStream);
+				break;
+			case 0x05:
+				pixelData = new PixelDataTLV(t,lhs,rhs,byteStream);
+				break;
+			default:
+				break;
+		}
+	}
 }
 
 ImageFileTLV::~ImageFileTLV()
