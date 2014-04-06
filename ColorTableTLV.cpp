@@ -19,7 +19,8 @@ ColorTableTLV::ColorTableTLV( char type, char llength, char rlength, std::queue<
 		byteStream.pop();
 	}
 
-	char t, lhs, rhs, key;
+	char t, lhs, rhs;
+	int key;
 
 	while( !values.empty() )
 	{

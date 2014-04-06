@@ -23,8 +23,11 @@ int main( int argc, char* argv[] )
 	while( inputFile.good() )
 	{
 		inputFile.read(&byte,sizeof(char));
-
-		byteStream.push(byte);
+		if( !inputFile.eof() )
+		{
+			//if( byte != '\n' && byte != ' ' )
+				byteStream.push(byte);
+		}
 	}
 
 	char type, llength, rlength;
@@ -35,11 +38,14 @@ int main( int argc, char* argv[] )
 	rlength = byteStream.front();
 	byteStream.pop();
 
-	ImageFileTLV* img = new ImageFileTLV(byte,llength,rlength,byteStream);
+	cout << endl << byteStream.size() << endl;
 
-	//cout << img.getLength() << endl << img.getFilename() << endl;
+	ImageFileTLV* img = new ImageFileTLV(type,llength,rlength,byteStream);
+
+	cout << img->getLength() << endl << img->getFilename() << endl;
 	//cout << "# of Pixel Rows: " << img.getNumPixelRows() << endl;
 
 	delete img;
+
 	return 0;
 }

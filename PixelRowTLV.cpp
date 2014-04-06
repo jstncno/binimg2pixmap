@@ -36,7 +36,7 @@ PixelRowTLV::PixelRowTLV( char type, char llength, char rlength, std::queue<char
 				break;
 			case 0x08: // if single-pixel
 				singlePixels.push_back(new SinglePixelTLV(t,lhs,rhs,values));
-				pixelGroup = NULL;
+				//pixelGroup = NULL;
 				break;
 			default:
 				break;

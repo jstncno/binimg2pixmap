@@ -12,27 +12,34 @@ ImageFileTLV::ImageFileTLV()
 ImageFileTLV::ImageFileTLV( char type, char llength, char rlength, std::queue<char> &byteStream )
 {
 	type = type;
-	length = TLV::bytes2int(llength,rlength);
+	length = bytes2int(llength,rlength);
+
+	for( int i = 0; i < length; i++ )
+	{
+		values.push(byteStream.front());
+		byteStream.pop();
+	}
+
 	char t, lhs, rhs;
 
-	for( int i = 0; i < 3; i++ )
+	while( !values.empty() )
 	{
-		t = byteStream.front();
-		byteStream.pop();
-		lhs = byteStream.front();
-		byteStream.pop();
-		rhs = byteStream.front();
-		byteStream.pop();
+		t = values.front();
+		values.pop();
+		lhs = values.front();
+		values.pop();
+		rhs = values.front();
+		values.pop();
 		switch( t )
 		{
 			case 0x02:
-				filename = new FilenameTLV(t,lhs,rhs,byteStream);
+				filename = new FilenameTLV(t,lhs,rhs,values);
 				break;
 			case 0x03:
-				colorTable = new ColorTableTLV(t,lhs,rhs,byteStream);
+				colorTable = new ColorTableTLV(t,lhs,rhs,values);
 				break;
 			case 0x05:
-				pixelData = new PixelDataTLV(t,lhs,rhs,byteStream);
+				pixelData = new PixelDataTLV(t,lhs,rhs,values);
 				break;
 			default:
 				break;
