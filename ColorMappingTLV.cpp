@@ -21,6 +21,8 @@ ColorMappingTLV::ColorMappingTLV( char type, char llength, char rlength, std::qu
 	{
 		key = values.front();
 		values.pop();
+		R = values.front();
+		values.pop();
 		G = values.front();
 		values.pop();
 		B = values.front();

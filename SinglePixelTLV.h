@@ -11,7 +11,6 @@ class SinglePixelTLV : public TLV
 		~SinglePixelTLV();
 
 	private:
-		std::queue<char> values;
 		char key;
 };
 

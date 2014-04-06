@@ -16,6 +16,7 @@ class TLV
 		char type;
 		int length;
 		int bytes2int( char high, char low ); // concatenates two bytes
+		std::queue<char> values;
 };
 
 #endif

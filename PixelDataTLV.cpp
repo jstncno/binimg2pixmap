@@ -18,7 +18,7 @@ PixelDataTLV::PixelDataTLV( char type, char llength, char rlength, std::queue<ch
 		byteStream.pop();
 	}
 
-	char t, lhs, rhs, key;
+	char t, lhs, rhs;
 
 	while( !values.empty() )
 	{

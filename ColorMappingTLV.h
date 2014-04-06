@@ -12,7 +12,6 @@ class ColorMappingTLV : public TLV
 
 	private:
 		char key,R,G,B;
-		std::queue<char> values;
 };
 
 #endif

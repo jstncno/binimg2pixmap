@@ -18,7 +18,7 @@ PixelRowTLV::PixelRowTLV( char type, char llength, char rlength, std::queue<char
 		byteStream.pop();
 	}
 
-	char t, lhs, rhs, key;
+	char t, lhs, rhs;
 
 	while( !values.empty() )
 	{

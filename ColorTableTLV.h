@@ -12,7 +12,6 @@ class ColorTableTLV : public TLV
 		~ColorTableTLV();
 
 	private:
-		std::queue<char> values;
 		std::map<char,ColorMappingTLV*> colorMappings;
 };
 
