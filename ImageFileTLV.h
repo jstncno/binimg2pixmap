@@ -14,10 +14,12 @@ class ImageFileTLV : public TLV
 		~ImageFileTLV();
 
 		std::string getFilename();
+		int getNumPixelRows();
 	private:
 		FilenameTLV* filename;
 		ColorTableTLV* colorTable;
 		PixelDataTLV* pixelData;
+		int numPixelRows;
 };
 
 #endif

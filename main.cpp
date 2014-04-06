@@ -35,9 +35,11 @@ int main( int argc, char* argv[] )
 	rlength = byteStream.front();
 	byteStream.pop();
 
-	ImageFileTLV img(byte,llength,rlength,byteStream);
+	ImageFileTLV* img = new ImageFileTLV(byte,llength,rlength,byteStream);
 
-	cout << img.getLength() << endl << img.getFilename() << endl;
+	//cout << img.getLength() << endl << img.getFilename() << endl;
+	//cout << "# of Pixel Rows: " << img.getNumPixelRows() << endl;
 
+	delete img;
 	return 0;
 }

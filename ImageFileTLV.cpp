@@ -38,6 +38,8 @@ ImageFileTLV::ImageFileTLV( char type, char llength, char rlength, std::queue<ch
 				break;
 		}
 	}
+
+	numPixelRows = pixelData->getNumPixelRows();
 }
 
 ImageFileTLV::~ImageFileTLV()
@@ -50,4 +52,9 @@ ImageFileTLV::~ImageFileTLV()
 std::string ImageFileTLV::getFilename()
 {
 	return filename->getFilename();
+}
+
+int ImageFileTLV::getNumPixelRows()
+{
+	return numPixelRows;
 }
