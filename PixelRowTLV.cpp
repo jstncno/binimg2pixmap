@@ -41,6 +41,11 @@ PixelRowTLV::PixelRowTLV( char type, char llength, char rlength, std::queue<char
 			default:
 				break;
 		}
+
+		numPixels = singlePixels.size();
+		for( int i = 0; i < pixelGroups.size(); i++ )
+			numPixels += pixelGroups[i]->getNumPixels();
+
 	}
 }
 
@@ -50,4 +55,9 @@ PixelRowTLV::~PixelRowTLV()
 		delete singlePixels[i];
 	for( int i = 0; i < pixelGroups.size(); i++ )
 		delete pixelGroups[i];
+}
+
+int PixelRowTLV::getNumPixels()
+{
+	return numPixels;
 }

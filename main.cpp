@@ -38,7 +38,8 @@ int main( int argc, char* argv[] )
 	ImageFileTLV* img = new ImageFileTLV(type,llength,rlength,byteStream);
 
 	cout << img->getLength() << endl << img->getFilename() << endl;
-	cout << "# of Pixel Rows: " << img->getNumPixelRows() << endl;
+	cout << "# of Pixels per PixelRow: " << img->getNumPixelsPerPixelRow() << endl;
+	cout << "# of PixelRows: " << img->getNumPixelRows() << endl;
 
 	delete img;
 

@@ -31,6 +31,8 @@ PixelDataTLV::PixelDataTLV( char type, char llength, char rlength, std::queue<ch
 		pixelRows.push_back(new PixelRowTLV(t,lhs,rhs,values));
 	}
 
+	numPixelsPerPixelRow = pixelRows[0]->getNumPixels();
+
 	numPixelRows = pixelRows.size();
 }
 
@@ -42,9 +44,9 @@ PixelDataTLV::~PixelDataTLV()
 	}
 }
 
-int PixelDataTLV::getNumPixelsPerRow()
+int PixelDataTLV::getNumPixelsPerPixelRow()
 {
-	
+	return numPixelsPerPixelRow;
 }
 
 int PixelDataTLV::getNumPixelRows()
