@@ -1,6 +1,6 @@
 #binimg2pixmap
 ##Binary image to pixmap converter
-A C++ program that takes in a binary image file (encoded as a byte stream, composed of a set of nested Type-Length-Value (TLV) structures) and converts it to an ASCII bitmap file.
+A C++ program that takes in a binary image file (encoded as a byte stream) and converts it to an ASCII bitmap file.
 
 ##Compile
 Download all source files and `make`
