@@ -47,7 +47,7 @@ int main( int argc, char* argv[] )
 		for( int i = 0; i < pixels.size(); i++ ) // for each pixel in the row
 		{
 			char t, key, num;
-			t = pixels[i]->getType();
+			t = img->getType();
 			switch( t )
 			{
 				case 0x07:
@@ -57,7 +57,7 @@ int main( int argc, char* argv[] )
 					cout << "SinglePixel ";
 					break;
 				default:
-					cout << "test ";
+					cout << t << " ";
 					break;
 			}
 		}

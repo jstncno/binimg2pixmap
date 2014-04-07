@@ -63,7 +63,7 @@ int PixelRowTLV::getNumPixels()
 	return numPixels;
 }
 
-std::vector<TLV*> PixelRowTLV::getPixels()
+std::vector<TLV*> & PixelRowTLV::getPixels()
 {
 	return pixels;
 }

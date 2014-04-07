@@ -12,7 +12,7 @@ class TLV
 {
 	public:
 		virtual ~TLV();
-		virtual char getType() = 0;
+		char getType();
 		int getLength();
 		void setLength( char lhs, char rhs );
 		virtual int getNumPixels();

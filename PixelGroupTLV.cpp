@@ -9,7 +9,7 @@ PixelGroupTLV::PixelGroupTLV()
 
 PixelGroupTLV::PixelGroupTLV( char type, char llength, char rlength, std::queue<char> &byteStream )
 {
-	type = type;
+	type = 0x07;
 	length = bytes2int(llength,rlength);
 
 	for( int i = 0; i < length; i++ )

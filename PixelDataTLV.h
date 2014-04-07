@@ -14,7 +14,7 @@ class PixelDataTLV : public TLV
 
 		int getNumPixelsPerPixelRow();
 		int getNumPixelRows();
-		std::vector<PixelRowTLV*> getPixelRows();
+		void getPixelRows(std::vector<PixelRowTLV*> &rows);
 	private:
 		std::vector<PixelRowTLV*> pixelRows;
 		int numPixelsPerPixelRow;
