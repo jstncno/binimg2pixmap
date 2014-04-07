@@ -4,15 +4,11 @@
 #include <fstream>
 #include <assert.h>
 #include <queue>
+#include <iomanip>
 #include "TLV.h"
 #include "ImageFileTLV.h"
 
 using namespace std;
-
-string byte2string(char byte)
-{
-
-}
 
 int main( int argc, char* argv[] )
 {
@@ -32,6 +28,8 @@ int main( int argc, char* argv[] )
 			byteStream.push(byte);
 	}
 
+	inputFile.close();
+
 	char type, llength, rlength;
 	type = byteStream.front();
 	byteStream.pop();
@@ -43,14 +41,15 @@ int main( int argc, char* argv[] )
 	ImageFileTLV* img = new ImageFileTLV(type,llength,rlength,byteStream);
 	int numPixelsPerPixelRow = img->getNumPixelsPerPixelRow();
 	int numPixelRows = img->getNumPixelRows();
+	string outputFileName = img->getFilename();
 
-	cout << img->getFilename() << "\n\n";
+	cout << outputFileName << "\n\n";
 	cout << numPixelsPerPixelRow << ' ' << numPixelRows << "\n\n";
 
 	queue<char> pixelKeys;
 	map<char,unsigned char> pixels;
 	char key;
-	string R,G,B;
+	unsigned char R,G,B;
 	for( int i = 0; i < numPixelRows; i++ )
 	{
 		img->queuePixelKeysAtRow(i,pixelKeys);
@@ -59,8 +58,11 @@ int main( int argc, char* argv[] )
 			key = pixelKeys.front();
 			img->getPixelAtKey(key,pixels);
 			pixelKeys.pop();
-			//unsigned char c = pixels['R'];
-			//cout << static_cast<int>(pixels['R']) << " ";
+			R = pixels['R'];
+			G = pixels['G'];
+			B = pixels['B'];
+			
+			printf("%.2x %.2x %.2x ", pixels['R'], pixels['G'], pixels['B']);
 		}
 		cout << '\n';
 	}
