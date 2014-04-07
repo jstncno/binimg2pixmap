@@ -69,7 +69,9 @@ int main( int argc, char* argv[] )
 			G = pixels['G'];
 			B = pixels['B'];
 			
-			fprintf( outputFile, "%.2x %.2x %.2x ", R, G, B );
+			fprintf( outputFile, "%.2x %.2x %.2x", R, G, B );
+			if( i < numPixelsPerPixelRow-1 )
+				fprintf( outputFile, " " );
 		}
 		fprintf( outputFile, "\n" );
 	}
