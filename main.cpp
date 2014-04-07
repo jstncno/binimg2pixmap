@@ -10,10 +10,27 @@
 #include "ImageFileTLV.h"
 
 using namespace std;
+/*
+	ASSERT macro definition taken from
+	http://stackoverflow.com/questions/3767869/adding-message-to-assert
+*/
+#ifndef NDEBUG
+#   define ASSERT(condition, message) \
+    do { \
+        if (! (condition)) { \
+            std::cerr << "Assertion `" #condition "` failed in " << __FILE__ \
+                      << " line " << __LINE__ << ": \n" << message << std::endl; \
+            std::exit(EXIT_FAILURE); \
+        } \
+    } while (false)
+#else
+#   define ASSERT(condition, message) do { std::exit(EXIT_FAILURE); } while (false)
+#endif
 
 int main( int argc, char* argv[] )
 {
-	assert(argc>1);
+	string errorMessage = "Error: no input file detected\nusage: binimg2pixmap <binary input file>\n";
+	ASSERT(argc>1,errorMessage);
 
 	queue<char> byteStream;
 
