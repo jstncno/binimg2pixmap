@@ -11,6 +11,7 @@ class ColorMappingTLV : public TLV
 		~ColorMappingTLV();
 		char getType();
 
+		void getPixel(std::map<char,char> &pixel);
 	private:
 		char key,R,G,B;
 };

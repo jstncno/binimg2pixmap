@@ -18,7 +18,8 @@ class ImageFileTLV : public TLV
 		std::string getFilename();
 		int getNumPixelsPerPixelRow();
 		int getNumPixelRows();
-		void queuePixelsAtRow(int row, std::queue<char> &pixels); //queues the keys for the pixel maps
+		void queuePixelKeysAtRow(int row, std::queue<char> &pixels); //queues the keys for the pixel maps
+		void getPixelAtKey(char key, std::map<char,char> &pixel); //retrieves R, B, and G pixel values from pixel map with key
 	private:
 		FilenameTLV* filename;
 		ColorTableTLV* colorTable;

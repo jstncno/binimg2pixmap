@@ -45,3 +45,8 @@ char ColorTableTLV::getType()
 {
 	return type;
 }
+
+void ColorTableTLV::getPixelAtKey(char key, std::map<char,char> &pixel)
+{
+	colorMappings[key]->getPixel(pixel);
+}

@@ -14,7 +14,7 @@ class PixelRowTLV : public TLV
 		char getType();
 
 		int getNumPixels();
-		void queuePixels(std::queue<char> &pixelQueue);
+		void queuePixelKeys(std::queue<char> &pixelQueue);
 	private:
 		std::vector<TLV*> pixels;
 		int numPixels;

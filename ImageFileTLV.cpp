@@ -77,7 +77,12 @@ int ImageFileTLV::getNumPixelRows()
 	return numPixelRows;
 }
 
-void ImageFileTLV::queuePixelsAtRow(int row, std::queue<char> &pixels)
+void ImageFileTLV::queuePixelKeysAtRow(int row, std::queue<char> &pixels)
 {
-	pixelData->queuePixelsAtRow(row,pixels);
+	pixelData->queuePixelKeysAtRow(row,pixels);
+}
+
+void ImageFileTLV::getPixelAtKey(char key, std::map<char,char> &pixel)
+{
+	colorTable->getPixelAtKey(key,pixel);
 }

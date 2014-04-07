@@ -63,13 +63,13 @@ int PixelRowTLV::getNumPixels()
 	return numPixels;
 }
 
-void PixelRowTLV::queuePixels(std::queue<char> &pixelQueue)
+void PixelRowTLV::queuePixelKeys(std::queue<char> &pixelQueue)
 {
 	while( !pixelQueue.empty() ) // empty the queue
 		pixelQueue.pop();
 
 	for( int i = 0; i < pixels.size(); i++ )
 	{
-		pixels[i]->queuePixels(pixelQueue);
+		pixels[i]->queuePixelKeys(pixelQueue);
 	}
 }

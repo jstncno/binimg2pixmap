@@ -14,7 +14,7 @@ class PixelDataTLV : public TLV
 
 		int getNumPixelsPerPixelRow();
 		int getNumPixelRows();
-		void queuePixelsAtRow(int row,std::queue<char> &pixels);
+		void queuePixelKeysAtRow(int row,std::queue<char> &pixels);
 	private:
 		std::vector<PixelRowTLV*> pixelRows;
 		int numPixelsPerPixelRow;

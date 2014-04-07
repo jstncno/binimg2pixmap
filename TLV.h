@@ -16,7 +16,7 @@ class TLV
 		int getLength();
 		void setLength( char lhs, char rhs );
 		virtual int getNumPixels();
-		virtual void queuePixels(std::queue<char> &pixelQueue);
+		virtual void queuePixelKeys(std::queue<char> &pixelQueue);
 	protected:
 		char type;
 		int length;

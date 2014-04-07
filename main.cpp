@@ -9,6 +9,11 @@
 
 using namespace std;
 
+string byte2string(char byte)
+{
+
+}
+
 int main( int argc, char* argv[] )
 {
 	assert(argc>1);
@@ -43,40 +48,21 @@ int main( int argc, char* argv[] )
 	cout << numPixelsPerPixelRow << ' ' << numPixelRows << "\n\n";
 
 	queue<char> pixelKeys;
+	map<char,char> pixels;
+	char key;
+	string R,G,B;
 	for( int i = 0; i < numPixelRows; i++ )
 	{
-		img->queuePixelsAtRow(i,pixelKeys);
+		img->queuePixelKeysAtRow(i,pixelKeys);
 		for( int i = 0; i < numPixelsPerPixelRow; i++ )
 		{
-			cout << static_cast<int>(pixelKeys.front()) << " ";
+			key = pixelKeys.front();
+			img->getPixelAtKey(key,pixels);
 			pixelKeys.pop();
+			//cout << static_cast<int>(pixels['R']) << " ";
 		}
 		cout << '\n';
 	}
-	/*vector<PixelRowTLV*> pixelRows = img->getPixelRows();
-	for( int i = 0; i < pixelRows.size(); i++ ) // for each pixel row
-	{
-		std::vector<TLV*> pixels = pixelRows[i]->getPixels();
-		for( int i = 0; i < pixels.size(); i++ ) // for each pixel in the row
-		{
-			char t, key, num;
-			t = img->getType();
-			switch( t )
-			{
-				case 0x07:
-					cout << "PixelGroup ";
-					break;
-				case 0x08:
-					cout << "SinglePixel ";
-					break;
-				default:
-					cout << t << " ";
-					break;
-			}
-		}
-		cout << '\n';
-	}
-	cout << endl;*/
 
 	delete img;
 

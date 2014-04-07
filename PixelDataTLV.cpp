@@ -59,7 +59,7 @@ int PixelDataTLV::getNumPixelRows()
 	return numPixelRows;
 }
 
-void PixelDataTLV::queuePixelsAtRow(int row, std::queue<char> &pixels)
+void PixelDataTLV::queuePixelKeysAtRow(int row, std::queue<char> &pixels)
 {
-	pixelRows[row]->queuePixels(pixels);
+	pixelRows[row]->queuePixelKeys(pixels);
 }

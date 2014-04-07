@@ -12,6 +12,7 @@ class ColorTableTLV : public TLV
 		~ColorTableTLV();
 		char getType();
 
+		void getPixelAtKey(char key, std::map<char,char> &pixel);
 	private:
 		std::map<char,ColorMappingTLV*> colorMappings;
 };

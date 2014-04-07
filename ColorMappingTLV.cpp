@@ -37,3 +37,10 @@ char ColorMappingTLV::getType()
 {
 	return type;
 }
+
+void ColorMappingTLV::getPixel(std::map<char,char> &pixel)
+{
+	pixel['R'] = R;
+	pixel['G'] = G;
+	pixel['B'] = B;
+}
