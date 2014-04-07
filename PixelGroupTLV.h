@@ -16,7 +16,7 @@ class PixelGroupTLV : public TLV
 		char getKey();
 		void queuePixelKeys(std::queue<char> &pixelQueue);
 	private:
-		char num, key;
+		unsigned char num, key;
 		int numPixels;
 };
 

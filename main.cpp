@@ -48,7 +48,7 @@ int main( int argc, char* argv[] )
 	cout << numPixelsPerPixelRow << ' ' << numPixelRows << "\n\n";
 
 	queue<char> pixelKeys;
-	map<char,char> pixels;
+	map<char,unsigned char> pixels;
 	char key;
 	string R,G,B;
 	for( int i = 0; i < numPixelRows; i++ )
@@ -59,6 +59,7 @@ int main( int argc, char* argv[] )
 			key = pixelKeys.front();
 			img->getPixelAtKey(key,pixels);
 			pixelKeys.pop();
+			//unsigned char c = pixels['R'];
 			//cout << static_cast<int>(pixels['R']) << " ";
 		}
 		cout << '\n';

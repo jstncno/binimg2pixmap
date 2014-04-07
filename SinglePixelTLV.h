@@ -14,7 +14,7 @@ class SinglePixelTLV : public TLV
 		int getNumPixels();
 		void queuePixelKeys(std::queue<char> &pixelQueue);
 	private:
-		char key;
+		unsigned char key;
 		int numPixels;
 };
 
