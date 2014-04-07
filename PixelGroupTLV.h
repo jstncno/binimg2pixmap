@@ -10,8 +10,10 @@ class PixelGroupTLV : public TLV
 		PixelGroupTLV( char type, char llength, char rlength, std::queue<char> &byteStream ); // Take in 3 bytes as parameters
 		~PixelGroupTLV();
 
+		int getNumPixels();
 	private:
 		char num, key;
+		int numPixels;
 };
 
 #endif

@@ -21,6 +21,7 @@ PixelGroupTLV::PixelGroupTLV( char type, char llength, char rlength, std::queue<
 	while( !values.empty() )
 	{
 		num = values.front();
+		numPixels = num;
 		values.pop();
 		key = values.front();
 		values.pop();
@@ -29,3 +30,8 @@ PixelGroupTLV::PixelGroupTLV( char type, char llength, char rlength, std::queue<
 
 PixelGroupTLV::~PixelGroupTLV()
 {}
+
+int PixelGroupTLV::getNumPixels()
+{
+	return numPixels;
+}
