@@ -18,7 +18,7 @@ class ImageFileTLV : public TLV
 		std::string getFilename();
 		int getNumPixelsPerPixelRow();
 		int getNumPixelRows();
-		void getPixelRows(std::vector<PixelRowTLV*> &pixelRows);
+		void queuePixelsAtRow(int row, std::queue<char> &pixels);
 	private:
 		FilenameTLV* filename;
 		ColorTableTLV* colorTable;

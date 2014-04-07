@@ -63,7 +63,8 @@ int PixelRowTLV::getNumPixels()
 	return numPixels;
 }
 
-std::vector<TLV*> & PixelRowTLV::getPixels()
+void PixelRowTLV::queuePixels(int row, std::queue<char> &pixelQueue)
 {
-	return pixels;
+	//TODO: add the pixels to pixelQueue from row
+	
 }

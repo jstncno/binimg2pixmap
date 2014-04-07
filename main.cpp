@@ -40,7 +40,10 @@ int main( int argc, char* argv[] )
 	cout << img->getFilename() << "\n\n";
 	cout << img->getNumPixelsPerPixelRow() << ' ' << img->getNumPixelRows() << "\n\n";
 
-	vector<PixelRowTLV*> pixelRows = img->getPixelRows();
+	queue<char> pixels;
+	img->queuePixelsAtRow(0,pixels);
+
+	/*vector<PixelRowTLV*> pixelRows = img->getPixelRows();
 	for( int i = 0; i < pixelRows.size(); i++ ) // for each pixel row
 	{
 		std::vector<TLV*> pixels = pixelRows[i]->getPixels();
@@ -63,7 +66,7 @@ int main( int argc, char* argv[] )
 		}
 		cout << '\n';
 	}
-	cout << endl;
+	cout << endl;*/
 
 	delete img;
 
