@@ -50,3 +50,11 @@ char PixelGroupTLV::getKey()
 {
 	return key;
 }
+
+void PixelGroupTLV::queuePixels(std::queue<char> &pixelQueue)
+{
+	for(int i = 0; i < static_cast<int>(num); i++)
+	{
+		pixelQueue.push(key);
+	}
+}

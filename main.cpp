@@ -36,13 +36,23 @@ int main( int argc, char* argv[] )
 	byteStream.pop();
 
 	ImageFileTLV* img = new ImageFileTLV(type,llength,rlength,byteStream);
+	int numPixelsPerPixelRow = img->getNumPixelsPerPixelRow();
+	int numPixelRows = img->getNumPixelRows();
 
 	cout << img->getFilename() << "\n\n";
-	cout << img->getNumPixelsPerPixelRow() << ' ' << img->getNumPixelRows() << "\n\n";
+	cout << numPixelsPerPixelRow << ' ' << numPixelRows << "\n\n";
 
-	queue<char> pixels;
-	img->queuePixelsAtRow(0,pixels);
-
+	queue<char> pixelKeys;
+	for( int i = 0; i < numPixelRows; i++ )
+	{
+		img->queuePixelsAtRow(i,pixelKeys);
+		for( int i = 0; i < numPixelsPerPixelRow; i++ )
+		{
+			cout << static_cast<int>(pixelKeys.front()) << " ";
+			pixelKeys.pop();
+		}
+		cout << '\n';
+	}
 	/*vector<PixelRowTLV*> pixelRows = img->getPixelRows();
 	for( int i = 0; i < pixelRows.size(); i++ ) // for each pixel row
 	{

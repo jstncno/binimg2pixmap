@@ -30,3 +30,7 @@ void TLV::setLength( char high, char low )
 {
 	length = bytes2int(high,low);
 }
+
+void TLV::queuePixels(std::queue<char> &pixelQueue)
+{
+}

@@ -38,3 +38,8 @@ int SinglePixelTLV::getNumPixels()
 {
 	return numPixels;
 }
+
+void SinglePixelTLV::queuePixels(std::queue<char> &pixelQueue)
+{
+	pixelQueue.push(key);
+}

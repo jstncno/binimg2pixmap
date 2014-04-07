@@ -65,6 +65,11 @@ int PixelRowTLV::getNumPixels()
 
 void PixelRowTLV::queuePixels(std::queue<char> &pixelQueue)
 {
-	//TODO: add the pixels to pixelQueue from this row
+	while( !pixelQueue.empty() ) // empty the queue
+		pixelQueue.pop();
 
+	for( int i = 0; i < pixels.size(); i++ )
+	{
+		pixels[i]->queuePixels(pixelQueue);
+	}
 }
