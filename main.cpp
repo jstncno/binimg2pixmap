@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <queue>
 #include <iomanip>
+#include <stdio.h>
 #include "TLV.h"
 #include "ImageFileTLV.h"
 
@@ -43,8 +44,14 @@ int main( int argc, char* argv[] )
 	int numPixelRows = img->getNumPixelRows();
 	string outputFileName = img->getFilename();
 
-	cout << outputFileName << "\n\n";
-	cout << numPixelsPerPixelRow << ' ' << numPixelRows << "\n\n";
+	FILE* outputFile;
+	outputFile = fopen(outputFileName.c_str(),"w");
+
+	//outputFile << outputFileName << "\n\n";
+	//outputFile << numPixelsPerPixelRow << ' ' << numPixelRows << "\n\n";
+
+	fprintf( outputFile, "%s\n\n", outputFileName.c_str() );
+	fprintf( outputFile, "%d %d\n\n", numPixelsPerPixelRow, numPixelRows );
 
 	queue<char> pixelKeys;
 	map<char,unsigned char> pixels;
@@ -62,10 +69,13 @@ int main( int argc, char* argv[] )
 			G = pixels['G'];
 			B = pixels['B'];
 			
-			printf("%.2x %.2x %.2x ", pixels['R'], pixels['G'], pixels['B']);
+			fprintf( outputFile, "%.2x %.2x %.2x ", R, G, B );
 		}
-		cout << '\n';
+		fprintf( outputFile, "\n" );
 	}
+
+	fprintf( outputFile, "\n" );
+	fclose(outputFile);
 
 	delete img;
 
