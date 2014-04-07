@@ -47,37 +47,39 @@ int main( int argc, char* argv[] )
 	FILE* outputFile;
 	outputFile = fopen(outputFileName.c_str(),"w");
 
-	//outputFile << outputFileName << "\n\n";
-	//outputFile << numPixelsPerPixelRow << ' ' << numPixelRows << "\n\n";
+	if( outputFile == NULL ) perror("Error creating output");
 
-	fprintf( outputFile, "%s\n\n", outputFileName.c_str() );
-	fprintf( outputFile, "%d %d\n\n", numPixelsPerPixelRow, numPixelRows );
-
-	queue<char> pixelKeys;
-	map<char,unsigned char> pixels;
-	char key;
-	unsigned char R,G,B;
-	for( int i = 0; i < numPixelRows; i++ )
+	else
 	{
-		img->queuePixelKeysAtRow(i,pixelKeys);
-		for( int i = 0; i < numPixelsPerPixelRow; i++ )
-		{
-			key = pixelKeys.front();
-			img->getPixelAtKey(key,pixels);
-			pixelKeys.pop();
-			R = pixels['R'];
-			G = pixels['G'];
-			B = pixels['B'];
-			
-			fprintf( outputFile, "%.2x %.2x %.2x", R, G, B );
-			if( i < numPixelsPerPixelRow-1 )
-				fprintf( outputFile, " " );
-		}
-		fprintf( outputFile, "\n" );
-	}
+		fprintf( outputFile, "%s\n\n", outputFileName.c_str() );
+		fprintf( outputFile, "%d %d\n\n", numPixelsPerPixelRow, numPixelRows );
 
-	fprintf( outputFile, "\n" );
-	fclose(outputFile);
+		queue<char> pixelKeys;
+		map<char,unsigned char> pixels;
+		char key;
+		unsigned char R,G,B;
+		for( int i = 0; i < numPixelRows; i++ )
+		{
+			img->queuePixelKeysAtRow(i,pixelKeys);
+			for( int i = 0; i < numPixelsPerPixelRow; i++ )
+			{
+				key = pixelKeys.front();
+				img->getPixelAtKey(key,pixels);
+				pixelKeys.pop();
+				R = pixels['R'];
+				G = pixels['G'];
+				B = pixels['B'];
+				
+				fprintf( outputFile, "%.2x %.2x %.2x", R, G, B );
+				if( i < numPixelsPerPixelRow-1 )
+					fprintf( outputFile, " " );
+			}
+			fprintf( outputFile, "\n" );
+		}
+
+		fprintf( outputFile, "\n" );
+		fclose(outputFile);
+	}
 
 	delete img;
 
