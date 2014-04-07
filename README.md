@@ -8,12 +8,12 @@ Download all source files and `make`
 ##Usage
 `binimg2pixmap <binary input file>`
 
-#Input File
+##Input File
 The input file must be a binary image file, encoded as a byte stream, composed of a set of nested Type-Length-Value (TLV) structures. The TLV structure is defined as:
 
 **[type: 1 byte] [length: 2 bytes] [value: <length> bytes]**
 
-#Output File
+##Output File
 The output file will be a simple bitmap, held in a plain-text, ASCII file format.
 
 ```
