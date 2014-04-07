@@ -71,3 +71,8 @@ int ImageFileTLV::getNumPixelRows()
 {
 	return numPixelRows;
 }
+
+std::vector<PixelRowTLV*> ImageFileTLV::getPixelRows()
+{
+	return pixelData->getPixelRows();
+}

@@ -21,7 +21,7 @@ TLV.o: TLV.cpp TLV.h
 	@echo making $@
 	$(CXX) $(CXX_FLAGS) -o $@ -ggdb TLV.cpp
 
-ImageFileTLV.o: ImageFileTLV.cpp ImageFileTLV.h FilenameTLV.h ColorTableTLV.h PixelDataTLV.h TLV.h
+ImageFileTLV.o: ImageFileTLV.cpp ImageFileTLV.h FilenameTLV.h ColorTableTLV.h PixelDataTLV.h PixelRowTLV.h TLV.h
 	@echo making $@
 	$(CXX) $(CXX_FLAGS) -o $@ -ggdb ImageFileTLV.cpp
 

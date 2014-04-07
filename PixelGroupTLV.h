@@ -11,6 +11,8 @@ class PixelGroupTLV : public TLV
 		~PixelGroupTLV();
 
 		int getNumPixels();
+		char getNum();
+		char getKey();
 	private:
 		char num, key;
 		int numPixels;

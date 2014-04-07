@@ -53,3 +53,8 @@ int PixelDataTLV::getNumPixelRows()
 {
 	return numPixelRows;
 }
+
+std::vector<PixelRowTLV*> PixelDataTLV::getPixelRows()
+{
+	return pixelRows;
+}

@@ -35,3 +35,13 @@ int PixelGroupTLV::getNumPixels()
 {
 	return numPixels;
 }
+
+char PixelGroupTLV::getNum()
+{
+	return num;
+}
+
+char PixelGroupTLV::getKey()
+{
+	return key;
+}

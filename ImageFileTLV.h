@@ -2,6 +2,7 @@
 #include "FilenameTLV.h"
 #include "ColorTableTLV.h"
 #include "PixelDataTLV.h"
+#include "PixelRowTLV.h"
 
 #ifndef ImageFileTLV_H
 #define ImageFileTLV_H
@@ -16,6 +17,7 @@ class ImageFileTLV : public TLV
 		std::string getFilename();
 		int getNumPixelsPerPixelRow();
 		int getNumPixelRows();
+		std::vector<PixelRowTLV*> getPixelRows();
 	private:
 		FilenameTLV* filename;
 		ColorTableTLV* colorTable;
