@@ -23,7 +23,13 @@ SinglePixelTLV::SinglePixelTLV( char type, char llength, char rlength, std::queu
 		key = values.front();
 		values.pop();
 	}
+	numPixels = 1;
 }
 
 SinglePixelTLV::~SinglePixelTLV()
 {}
+
+int SinglePixelTLV::getNumPixels()
+{
+	return numPixels;
+}

@@ -16,6 +16,9 @@ int TLV::getLength()
 	return length;
 }
 
+int TLV::getNumPixels()
+{}
+
 void TLV::setLength( char high, char low )
 {
 	length = bytes2int(high,low);

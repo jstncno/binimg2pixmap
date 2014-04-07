@@ -14,6 +14,7 @@ class TLV
 		virtual ~TLV();
 		int getLength();
 		void setLength( char lhs, char rhs );
+		virtual int getNumPixels();
 	protected:
 		char type;
 		int length;

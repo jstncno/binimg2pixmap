@@ -32,29 +32,25 @@ PixelRowTLV::PixelRowTLV( char type, char llength, char rlength, std::queue<char
 		switch( t )
 		{
 			case 0x07: // if pixel-group
-				pixelGroups.push_back(new PixelGroupTLV(t,lhs,rhs,values));
+				pixels.push_back(new PixelGroupTLV(t,lhs,rhs,values));
 				break;
 			case 0x08: // if single-pixel
-				singlePixels.push_back(new SinglePixelTLV(t,lhs,rhs,values));
-				//pixelGroup = NULL;
+				pixels.push_back(new SinglePixelTLV(t,lhs,rhs,values));
 				break;
 			default:
 				break;
 		}
 
-		numPixels = singlePixels.size();
-		for( int i = 0; i < pixelGroups.size(); i++ )
-			numPixels += pixelGroups[i]->getNumPixels();
+		for( int i = 0; i < pixels.size(); i++ )
+			numPixels += pixels[i]->getNumPixels();
 
 	}
 }
 
 PixelRowTLV::~PixelRowTLV()
 {
-	for( int i = 0; i < singlePixels.size(); i++ )
-		delete singlePixels[i];
-	for( int i = 0; i < pixelGroups.size(); i++ )
-		delete pixelGroups[i];
+	for( int i = 0; i < pixels.size(); i++ )
+		delete pixels[i];
 }
 
 int PixelRowTLV::getNumPixels()
