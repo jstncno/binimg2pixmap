@@ -57,6 +57,11 @@ ImageFileTLV::~ImageFileTLV()
 	delete pixelData;
 }
 
+char ImageFileTLV::getType()
+{
+	return type;
+}
+
 std::string ImageFileTLV::getFilename()
 {
 	return filename->getFilename();

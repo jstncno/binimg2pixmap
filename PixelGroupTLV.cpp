@@ -31,6 +31,11 @@ PixelGroupTLV::PixelGroupTLV( char type, char llength, char rlength, std::queue<
 PixelGroupTLV::~PixelGroupTLV()
 {}
 
+char PixelGroupTLV::getType()
+{
+	return type;
+}
+
 int PixelGroupTLV::getNumPixels()
 {
 	return numPixels;

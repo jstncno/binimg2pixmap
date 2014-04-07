@@ -10,6 +10,7 @@ class ColorTableTLV : public TLV
 		ColorTableTLV();
 		ColorTableTLV( char type, char llength, char rlength, std::queue<char> &byteStream ); // Take in 3 bytes as parameters
 		~ColorTableTLV();
+		char getType();
 
 	private:
 		std::map<char,ColorMappingTLV*> colorMappings;

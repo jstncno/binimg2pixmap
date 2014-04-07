@@ -40,6 +40,31 @@ int main( int argc, char* argv[] )
 	cout << img->getFilename() << "\n\n";
 	cout << img->getNumPixelsPerPixelRow() << ' ' << img->getNumPixelRows() << "\n\n";
 
+	vector<PixelRowTLV*> pixelRows = img->getPixelRows();
+	for( int i = 0; i < pixelRows.size(); i++ ) // for each pixel row
+	{
+		std::vector<TLV*> pixels = pixelRows[i]->getPixels();
+		for( int i = 0; i < pixels.size(); i++ ) // for each pixel in the row
+		{
+			char t, key, num;
+			t = pixels[i]->getType();
+			switch( t )
+			{
+				case 0x07:
+					cout << "PixelGroup ";
+					break;
+				case 0x08:
+					cout << "SinglePixel ";
+					break;
+				default:
+					cout << "test ";
+					break;
+			}
+		}
+		cout << '\n';
+	}
+	cout << endl;
+
 	delete img;
 
 	return 0;

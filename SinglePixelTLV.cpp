@@ -29,6 +29,11 @@ SinglePixelTLV::SinglePixelTLV( char type, char llength, char rlength, std::queu
 SinglePixelTLV::~SinglePixelTLV()
 {}
 
+char SinglePixelTLV::getType()
+{
+	return type;
+}
+
 int SinglePixelTLV::getNumPixels()
 {
 	return numPixels;

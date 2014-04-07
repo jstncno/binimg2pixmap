@@ -11,8 +11,10 @@ class PixelRowTLV : public TLV
 		PixelRowTLV();
 		PixelRowTLV( char type, char llength, char rlength, std::queue<char> &byteStream ); // Take in 3 bytes as parameters
 		~PixelRowTLV();
+		char getType();
 
 		int getNumPixels();
+		std::vector<TLV*> getPixels();
 	private:
 		std::vector<TLV*> pixels;
 		int numPixels;

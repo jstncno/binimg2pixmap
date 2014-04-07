@@ -13,6 +13,7 @@ class ImageFileTLV : public TLV
 		ImageFileTLV();
 		ImageFileTLV( char type, char llength, char rlength, std::queue<char> &byteStream ); // Take in 3 bytes as parameters
 		~ImageFileTLV();
+		char getType();
 
 		std::string getFilename();
 		int getNumPixelsPerPixelRow();

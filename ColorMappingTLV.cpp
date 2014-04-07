@@ -32,3 +32,8 @@ ColorMappingTLV::ColorMappingTLV( char type, char llength, char rlength, std::qu
 
 ColorMappingTLV::~ColorMappingTLV()
 {}
+
+char ColorMappingTLV::getType()
+{
+	return type;
+}

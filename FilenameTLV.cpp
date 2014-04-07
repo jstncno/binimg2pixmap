@@ -31,3 +31,8 @@ std::string FilenameTLV::getFilename()
 {
 	return filename;
 }
+
+char FilenameTLV::getType()
+{
+	return type;
+}

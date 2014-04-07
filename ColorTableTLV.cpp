@@ -40,3 +40,8 @@ ColorTableTLV::~ColorTableTLV()
 	for (std::map<char,ColorMappingTLV*>::iterator it=colorMappings.begin(); it!=colorMappings.end(); ++it)
 		delete colorMappings[it->first];
 }
+
+char ColorTableTLV::getType()
+{
+	return type;
+}

@@ -11,13 +11,20 @@ int TLV::bytes2int( char high, char low )
 TLV::~TLV()
 {}
 
+char TLV::getType()
+{
+	return type;
+}
+
 int TLV::getLength()
 {
 	return length;
 }
 
 int TLV::getNumPixels()
-{}
+{
+	return -1;
+}
 
 void TLV::setLength( char high, char low )
 {

@@ -10,6 +10,7 @@ class FilenameTLV : public TLV
 		FilenameTLV( char type, char llength, char rlength, std::queue<char> &byteStream ); // Take in 3 bytes as parameters
 		void setFilename( std::queue<char> &byteStream );
 		std::string getFilename();
+		char getType();
 
 	private:
 		std::string filename;

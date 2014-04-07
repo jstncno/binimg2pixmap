@@ -9,6 +9,7 @@ class SinglePixelTLV : public TLV
 		SinglePixelTLV();
 		SinglePixelTLV( char type, char llength, char rlength, std::queue<char> &byteStream ); // Take in 3 bytes as parameters
 		~SinglePixelTLV();
+		char getType();
 
 		int getNumPixels();
 	private:

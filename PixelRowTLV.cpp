@@ -53,7 +53,17 @@ PixelRowTLV::~PixelRowTLV()
 		delete pixels[i];
 }
 
+char PixelRowTLV::getType()
+{
+	return type;
+}
+
 int PixelRowTLV::getNumPixels()
 {
 	return numPixels;
+}
+
+std::vector<TLV*> PixelRowTLV::getPixels()
+{
+	return pixels;
 }
