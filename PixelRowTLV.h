@@ -14,7 +14,8 @@ class PixelRowTLV : public TLV
 
 	private:
 		std::vector<SinglePixelTLV*> singlePixels;
-		PixelGroupTLV* pixelGroup;
+		std::vector<PixelGroupTLV*> pixelGroups;
+		int numPixels;
 };
 
 #endif

@@ -32,7 +32,7 @@ PixelRowTLV::PixelRowTLV( char type, char llength, char rlength, std::queue<char
 		switch( t )
 		{
 			case 0x07: // if pixel-group
-				pixelGroup = new PixelGroupTLV(t,lhs,rhs,values);
+				pixelGroups.push_back(new PixelGroupTLV(t,lhs,rhs,values));
 				break;
 			case 0x08: // if single-pixel
 				singlePixels.push_back(new SinglePixelTLV(t,lhs,rhs,values));
@@ -48,5 +48,6 @@ PixelRowTLV::~PixelRowTLV()
 {
 	for( int i = 0; i < singlePixels.size(); i++ )
 		delete singlePixels[i];
-	delete pixelGroup;
+	for( int i = 0; i < pixelGroups.size(); i++ )
+		delete pixelGroups[i];
 }

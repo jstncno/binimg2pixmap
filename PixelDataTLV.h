@@ -11,6 +11,7 @@ class PixelDataTLV : public TLV
 		PixelDataTLV( char type, char llength, char rlength, std::queue<char> &byteStream ); // Take in 3 bytes as parameters
 		~PixelDataTLV();
 
+		int getNumPixelsPerRow();
 		int getNumPixelRows();
 	private:
 		std::vector<PixelRowTLV*> pixelRows;

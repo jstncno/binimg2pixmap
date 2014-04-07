@@ -42,6 +42,11 @@ PixelDataTLV::~PixelDataTLV()
 	}
 }
 
+int PixelDataTLV::getNumPixelsPerRow()
+{
+	
+}
+
 int PixelDataTLV::getNumPixelRows()
 {
 	return numPixelRows;
